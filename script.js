@@ -1,5 +1,17 @@
 pickedColor = "";
 
+// Create the color picker element
+let colorPicker = document.createElement('input');
+colorPicker.type = 'color';
+colorPicker.value = pickedColor;
+document.body.insertAdjacentElement('beforeend', colorPicker);
+
+// Update the base color when the color picker value changes
+colorPicker.addEventListener('change', function() {
+  pickedColor = colorPicker.value;
+});
+
+
 //Buat function untuk mereset container
 function cleanAll() {
   let blocks = document.querySelectorAll(".block");

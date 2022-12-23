@@ -11,6 +11,21 @@ colorPicker.addEventListener('change', function() {
   pickedColor = colorPicker.value;
 });
 
+// Create function to make random color
+function randomizeColors() {
+  let blocks = document.querySelectorAll('.block');
+  blocks.forEach(block => {
+    let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    block.style.backgroundColor = randomColor;
+  });
+}
+
+//Create a button to trigger the randomizeColors function
+let randomizeButton = document.createElement('button');
+randomizeButton.innerHTML = "Randomize Colors"; //Masukkan text kedalam button
+document.body.insertAdjacentElement("beforeend", randomizeButton); //Masukkan elemen ini kedalam body HTML dibagian akhir
+
+randomizeButton.addEventListener("click", randomizeColors); //Trigger fungsi randomizeColors ketika button ditekan
 
 //Buat function untuk mereset container
 function cleanAll() {

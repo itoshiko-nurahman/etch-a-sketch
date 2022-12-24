@@ -1,15 +1,39 @@
 pickedColor = "";
 
+//Create the container for elements except the block
+let home = document.createElement("div");
+home.classList.add("home");
+document.body.insertAdjacentElement("beforeend", home);
+
 // Create the color picker element
 let colorPicker = document.createElement('input');
 colorPicker.type = 'color';
 colorPicker.value = pickedColor;
-document.body.insertAdjacentElement('beforeend', colorPicker);
+home.insertAdjacentElement('beforeend', colorPicker);
 
 // Update the base color when the color picker value changes
 colorPicker.addEventListener('change', function() {
   pickedColor = colorPicker.value;
 });
+
+//Make the label
+let numLabel = document.createElement("label");
+numLabel.for = "number-input";
+numLabel.innerHTML = "Change the size :";
+home.appendChild(numLabel);
+
+//Make thing to pick block size
+let numInput = document.createElement("input");
+numInput.setAttribute("id", "number-input");
+numInput.type = "number";
+numInput.value = 16;
+home.appendChild(numInput);
+
+numInput.addEventListener("change", () => {
+  let size = numInput.value;
+  createBlock(size);
+  cleanAll();
+})
 
 // Create function to make random color
 function randomizeColors() {
@@ -23,7 +47,7 @@ function randomizeColors() {
 //Create a button to trigger the randomizeColors function
 let randomizeButton = document.createElement('button');
 randomizeButton.innerHTML = "Randomize Colors"; //Masukkan text kedalam button
-document.body.insertAdjacentElement("beforeend", randomizeButton); //Masukkan elemen ini kedalam body HTML dibagian akhir
+home.insertAdjacentElement("beforeend", randomizeButton); //Masukkan elemen ini kedalam body HTML dibagian akhir
 
 randomizeButton.addEventListener("click", randomizeColors); //Trigger fungsi randomizeColors ketika button ditekan
 
@@ -38,7 +62,7 @@ function cleanAll() {
 //Buat button untuk trigger reset container
 let reset = document.createElement("button");
 reset.innerHTML = "Reset";
-document.body.insertAdjacentElement("beforeend", reset);
+home.insertAdjacentElement("beforeend", reset);
 
 reset.addEventListener("click", cleanAll);
 

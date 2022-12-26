@@ -36,9 +36,13 @@ numInput.value = 16;
 sizeContainer.appendChild(numInput);
 
 numInput.addEventListener("change", () => {
-  let size = numInput.value;
-  createBlock(size);
-  cleanAll();
+  if ( numInput.value >= 2 && numInput.value <= 100 ) {
+    let size = numInput.value;
+    createBlock(size);
+    cleanAll();
+  } else {
+    alert("Number must be between 2 and 100");
+  }
 })
 
 //create div for label and color picker

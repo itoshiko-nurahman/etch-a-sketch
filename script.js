@@ -1,39 +1,68 @@
 pickedColor = "";
 
+let title = document.createElement("h1");
+title.innerHTML = "Etch a Sketch";
+document.body.insertAdjacentElement("afterbegin", title);
+
+let body = document.createElement("div");
+body.setAttribute("class", "body");
+document.body.appendChild(body);
+
+let container = document.createElement("div");
+container.setAttribute("class", "container");
+body.appendChild(container);
+
 //Create the container for elements except the block
 let home = document.createElement("div");
 home.classList.add("home");
-document.body.insertAdjacentElement("beforeend", home);
+body.insertAdjacentElement("beforeend", home);
 
-// Create the color picker element
-let colorPicker = document.createElement('input');
-colorPicker.type = 'color';
-colorPicker.value = pickedColor;
-home.insertAdjacentElement('beforeend', colorPicker);
-
-// Update the base color when the color picker value changes
-colorPicker.addEventListener('change', function() {
-  pickedColor = colorPicker.value;
-});
+//Make div for label and block size
+let sizeContainer = document.createElement("div");
+sizeContainer.setAttribute("class", "block-container");
+home.insertAdjacentElement("afterbegin", sizeContainer);
 
 //Make the label
 let numLabel = document.createElement("label");
-numLabel.for = "number-input";
+numLabel.setAttribute("for","number-input");
 numLabel.innerHTML = "Change the size :";
-home.appendChild(numLabel);
+sizeContainer.appendChild(numLabel);
 
 //Make thing to pick block size
 let numInput = document.createElement("input");
 numInput.setAttribute("id", "number-input");
 numInput.type = "number";
 numInput.value = 16;
-home.appendChild(numInput);
+sizeContainer.appendChild(numInput);
 
 numInput.addEventListener("change", () => {
   let size = numInput.value;
   createBlock(size);
   cleanAll();
 })
+
+//create div for label and color picker
+let colorContainer = document.createElement("div");
+colorContainer.setAttribute("class", "color-container");
+home.appendChild(colorContainer);
+
+//Create label for color picker
+let colorPickerLabel = document.createElement("label");
+colorPickerLabel.setAttribute("for", "color-picker");
+colorPickerLabel.innerHTML = "Pick the color : ";
+colorContainer.insertAdjacentElement("afterbegin", colorPickerLabel);
+
+// Create the color picker element
+let colorPicker = document.createElement('input');
+colorPicker.setAttribute("id", "color-picker");
+colorPicker.type = 'color';
+colorPicker.value = pickedColor;
+colorContainer.insertAdjacentElement('beforeend', colorPicker);
+
+// Update the base color when the color picker value changes
+colorPicker.addEventListener('change', function() {
+  pickedColor = colorPicker.value;
+});
 
 // Create function to make random color
 function randomizeColors() {
@@ -47,6 +76,7 @@ function randomizeColors() {
 //Create a button to trigger the randomizeColors function
 let randomizeButton = document.createElement('button');
 randomizeButton.innerHTML = "Randomize Colors"; //Masukkan text kedalam button
+randomizeButton.setAttribute("id", "randomize-color");
 home.insertAdjacentElement("beforeend", randomizeButton); //Masukkan elemen ini kedalam body HTML dibagian akhir
 
 randomizeButton.addEventListener("click", randomizeColors); //Trigger fungsi randomizeColors ketika button ditekan
@@ -62,6 +92,7 @@ function cleanAll() {
 //Buat button untuk trigger reset container
 let reset = document.createElement("button");
 reset.innerHTML = "Reset";
+reset.setAttribute("id", "reset-all");
 home.insertAdjacentElement("beforeend", reset);
 
 reset.addEventListener("click", cleanAll);

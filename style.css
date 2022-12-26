@@ -1,10 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
 html {
   box-sizing: border-box;
+  height: 100%;
+  font-family: "Lato", sans-serif;
 }
 
 .container {
   width: 500px;
   height: 500px;
   display: grid;
-  border: 3px solid black;
+  border: 5px solid #6a994e;
+  background-color: #ffffff;
 }
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 54px;
+  /* border-radius: 0px; */
+color: #ffffff;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+body {
+  background-color: #386641;
+}
+
+.body {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;*/
+  padding: 20px;
+  border: 1px solid #2a3d1f;
+  border-radius: 27px;
+  background: #6a994e;
+  box-shadow: 5px 5px 10px #2a3d1f;
+  /* , -5px -5px 10px #aaf57d */
+}
+
+.block-container,
+.color-container,
+#randomize-color,
+#reset-all {
+  margin: 20px 0;
+  border: 1px solid white;
+  /* border: 0; */
+  padding: 10px 15px;
+  color: white;
+  border-radius: 10px;
+  background: #a7c957;
+  /* box-shadow: 5px 5px 10px #435023; */
+  /* ,
+  -5px -5px 10px #ffff8b */
+}
+
+
+.block-container:hover,
+.color-container:hover,
+#randomize-color:hover,
+#reset-all:hover {
+  border: 1px solid #a7c957;
+  box-shadow: 5px 5px 10px #435023, -5px -5px 10px #ffff8b;
+  transition: box-shadow .5s;
+}
+
+.block-container,
+.color-container {
+  display: flex;
+  align-items: center;
+}
+
+input#number-input {
+  border: 1px solid white;
+  width: 40px;
+  border-radius: 2px;
+  margin: 0 10px;
+}
+
+#color-picker {
+  margin: 0 10px;
+}
+/* .color-container {
+  margin: 20px 0;
+  border: 1px solid white;
+  padding: 5px 0;
+  color: white;
+  border-radius: 27px;
+  background: #A7C957;
+  box-shadow:  5px 5px 10px #435023,
+              -5px -5px 10px #ffff8b;
+}
+
+#randomize-color {
+  margin: 20px 0;
+  border: 1px solid white;
+  padding: 5px 0;
+  color: white;
+  border-radius: 27px;
+  background: #A7C957;
+  box-shadow:  5px 5px 10px #435023,
+              -5px -5px 10px #ffff8b;
+}
+
+#reset-all {
+  margin: 20px 0;
+  border: 1px solid white;
+  padding: 5px 0;
+  color: white;
+  border-radius: 27px;
+  background: #A7C957;
+  box-shadow:  5px 5px 10px #435023,
+              -5px -5px 10px #ffff8b;
+} */
